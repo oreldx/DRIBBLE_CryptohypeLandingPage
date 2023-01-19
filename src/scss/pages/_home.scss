@@ -1,0 +1,133 @@
+@use '../abstracts/_abstracts-dir' as *;
+
+
+// General styling
+
+body {
+    background: $clr-grey;
+    height: 100vh;
+}
+
+// Hero
+
+.hero {
+    margin-top: 2rem;
+
+    & .container {
+        display: grid;
+        grid-template-columns: 1fr 0.7fr;
+        align-items: center;
+    }
+
+
+    .left {
+        // background: red;
+
+        h1 {
+            max-width: 500px;
+        }
+
+        .button--transparent {
+            margin-inline: 1rem;
+        }
+
+        & > *:not(:first-child){
+              margin-top: 2rem;
+            }
+    }
+    .right {
+        align-self: center;
+        position: relative;
+        // background: green;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            aspect-ratio: 1;
+            border-radius: 100vh;
+            background: $clr-gradient-900;
+            z-index: -1;
+        }
+        img {
+            position: relative;
+            top: 40px;
+            left: -40px;
+        }
+    }
+
+    .even-columns {
+        position: absolute;
+        top: 60%;
+        left: clamp(120px, 20vw, 280px);
+        width: 200px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        
+        padding: 0.5rem;
+        background: rgba($color: #ffffff, $alpha: 0.3);
+        border-radius: 0.7rem;
+        line-height: 1.8;
+        
+        .button {
+            padding: 0.7rem;
+        }
+
+        & div > *:not(:first-child){
+            margin-top: 0.5rem;
+          }
+    }
+
+    .key-points {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+}
+
+// Sales points
+
+.sales-points {
+    margin-top: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6rem;
+
+    li {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 3rem;
+    }
+    
+    .icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    & img {
+        width: 70%;
+    }
+    & .background-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90px;
+        aspect-ratio: 1;
+        border-radius: 100vh;
+        background: $clr-gradient-900;
+        z-index: -1;
+    }
+
+}
+
+
+

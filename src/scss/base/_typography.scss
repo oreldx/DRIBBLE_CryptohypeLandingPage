@@ -1,0 +1,41 @@
+@use '../abstracts/_abstracts-dir' as *;
+
+html {
+    font-family: $ff;
+    font-weight: $regular;
+    color: $clr-white;
+}
+
+.nav-wrapper .home, .number {
+    font-weight: $bold;
+}
+
+.number {
+    font-size: $fs-600;
+}
+
+.unit {
+    font-size: $fs-400;
+}
+
+.even-columns {
+    font-size: $fs-400;
+}
+
+.primary-header {
+    font-weight: $bold;
+    font-size: $fs-900;
+    line-height: 1.5;
+
+    span {
+        background: $clr-gradient-100;
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.sales-points {
+    // font-weight: bold;
+    font-size: $fs-500;
+}

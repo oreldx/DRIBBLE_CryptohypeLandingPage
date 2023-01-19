@@ -1,0 +1,32 @@
+@use '../abstracts/_abstracts-dir' as *;
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.8rem;
+    margin-top: 1rem;
+    & a {
+        text-decoration: none;
+        color: $clr-white;
+    }
+
+    & span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90px;
+        aspect-ratio: 1;
+        border-radius: 100vh;
+        background: $clr-gradient-900;
+        z-index: -1;
+    }
+}
+
+.primary-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+}

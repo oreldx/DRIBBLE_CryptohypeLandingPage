@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+/*
+This file is used to contain all abstracts imports.
+Files inside this folder can contain abstract settings, helpers or functions. They have no direct output.
+*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html {
+  font-family: "Poppins";
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.nav-wrapper .home, .number {
+  font-weight: 700;
+}
+
+.number {
+  font-size: 1.25rem;
+}
+
+.unit {
+  font-size: 0.75rem;
+}
+
+.even-columns {
+  font-size: 0.75rem;
+}
+
+.primary-header {
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+.primary-header span {
+  background: linear-gradient(90deg, rgb(243, 70, 63) 30%, rgb(205, 101, 146) 77%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sales-points {
+  font-size: 1rem;
+}
+
+/*
+This file is used to contain all base imports.
+Files inside this folder can contain global styles used in the project.
+*/
+.button {
+  cursor: pointer;
+  background: linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
+  color: #ffffff;
+  font-weight: 400;
+  padding: 1.4rem 2rem;
+  border-radius: 100vh;
+  border: 0;
+  line-height: 0;
+}
+.button.button--transparent {
+  background: transparent;
+  border: solid 3px transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #1f1d21 inset;
+}
+.button.button--circle {
+  aspect-ratio: 1;
+  padding: 0.7rem;
+}
+.button.button--white {
+  background: transparent;
+  border: solid 2px #ffffff;
+}
+
+.input {
+  border-radius: 100vh;
+  padding: 0.2em 0.8em;
+  background: transparent;
+  border: solid 2px transparent;
+  background-image: linear-gradient(#1f1d21, #1f1d21), linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.8rem;
+  margin-top: 1rem;
+}
+.nav-wrapper a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.nav-wrapper span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  aspect-ratio: 1;
+  border-radius: 100vh;
+  background: linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
+  z-index: -1;
+}
+
+.primary-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.container {
+  --max-width: 1100px;
+  --container-padding: 2rem;
+  width: min(var(--max-width), 100% - var(--container-padding) * 2);
+  margin-inline: auto;
+}
+
+body {
+  background: #1f1d21;
+  height: 100vh;
+}
+
+.hero {
+  margin-top: 2rem;
+}
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  align-items: center;
+}
+.hero .left h1 {
+  max-width: 500px;
+}
+.hero .left .button--transparent {
+  margin-inline: 1rem;
+}
+.hero .left > *:not(:first-child) {
+  margin-top: 2rem;
+}
+.hero .right {
+  align-self: center;
+  position: relative;
+}
+.hero .right::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  aspect-ratio: 1;
+  border-radius: 100vh;
+  background: linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
+  z-index: -1;
+}
+.hero .right img {
+  position: relative;
+  top: 40px;
+  left: -40px;
+}
+.hero .even-columns {
+  position: absolute;
+  top: 60%;
+  left: clamp(120px, 20vw, 280px);
+  width: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0.7rem;
+  line-height: 1.8;
+}
+.hero .even-columns .button {
+  padding: 0.7rem;
+}
+.hero .even-columns div > *:not(:first-child) {
+  margin-top: 0.5rem;
+}
+.hero .key-points {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.sales-points {
+  margin-top: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+}
+.sales-points li {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 3rem;
+}
+.sales-points .icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sales-points img {
+  width: 70%;
+}
+.sales-points .background-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  aspect-ratio: 1;
+  border-radius: 100vh;
+  background: linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
+  z-index: -1;
+}/*# sourceMappingURL=styles.css.map */

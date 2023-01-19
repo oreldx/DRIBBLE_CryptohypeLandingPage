@@ -1,0 +1,14 @@
+@use '../abstracts/_abstracts-dir' as *;
+
+
+.input {
+    border-radius: 100vh;
+    padding: 0.2em 0.8em;
+    background: transparent;
+
+    border: solid 2px transparent;
+    background-image: linear-gradient($clr-grey, $clr-grey), 
+                      $clr-gradient-900;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}

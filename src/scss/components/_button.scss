@@ -1,0 +1,32 @@
+@use '../abstracts/_abstracts-dir' as *;
+
+.button {
+    cursor: pointer;
+    background: $clr-gradient-900;
+    color: $clr-white;
+    font-weight: $regular;
+    padding: 1.4rem 2rem;
+    border-radius: 100vh;
+    border: 0;
+    line-height: 0;
+
+    &.button--transparent {
+        background: transparent;
+
+        border: solid 3px transparent;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), $clr-gradient-900;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow: 2px 1000px 1px $clr-grey inset;
+    }
+
+    &.button--circle {
+        aspect-ratio: 1;
+        padding: 0.7rem;
+    }
+
+    &.button--white {
+        background: transparent;
+        border: solid 2px $clr-white;
+    }
+}
