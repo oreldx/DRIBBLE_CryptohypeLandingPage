@@ -1,0 +1,112 @@
+@use '../abstracts/_abstracts-dir' as *;
+
+.hero {
+    margin-top: 2rem;
+
+    & .container {
+        display: grid;
+        grid-template-columns: 1fr 0.7fr;
+        align-items: center;
+
+        @media screen and (max-width: 570px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+    .left {
+
+        h1 {
+            max-width: 500px;
+        }
+
+        .button--transparent {
+            margin-inline: 1rem;
+        }
+
+        & > *:not(:first-child){
+              margin-top: 2rem;
+            }
+        
+        @media screen and (max-width: 570px) {
+            .key-points {
+                justify-content: center;
+            }
+            .buttons {
+                justify-content: center;
+            }
+
+       
+        }
+    }
+    .right {
+        align-self: center;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            aspect-ratio: 1;
+            border-radius: 100vh;
+            background: $clr-gradient-900;
+            z-index: -1;
+
+            @media screen and (max-width: 570px) {
+                width: 100%;
+            }
+        }
+
+
+        img {
+            position: relative;
+            top: 40px;
+            left: -40px;
+        }
+    }
+
+    .even-columns {
+        position: absolute;
+        top: 60%;
+        left: min(280px, 20vw);
+        width: 200px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        
+        padding: 0.5rem;
+        background: rgba($color: #ffffff, $alpha: 0.3);
+        border-radius: 0.7rem;
+        line-height: 1.8;
+        
+        .button {
+            padding: 0.7rem;
+        }
+
+        & div > *:not(:first-child){
+            margin-top: 0.5rem;
+          }
+          @media screen and (max-width: 970px) {
+            left: 50%;          
+            transform: translateX(-50%);  
+          }
+    }
+
+    .key-points {
+        display: flex;
+        align-items: center;
+
+        li:not(:first-child)  {
+            border-left: 2px solid;
+            padding-inline: 1rem;
+        }
+        li:first-child {
+            padding-right: 1rem;
+        }
+        
+    }
+}

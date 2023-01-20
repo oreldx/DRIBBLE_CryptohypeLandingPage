@@ -1,0 +1,61 @@
+@use '../abstracts/_abstracts-dir' as *;
+
+.sales-points {
+    
+    margin-top: 5rem;
+
+    .sales-points-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    li {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 3rem;
+        align-items: center;
+    }
+    
+    .icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    & img {
+        width: 70%;
+        min-width: 30px;
+        max-width: 50px;
+        filter: drop-shadow(0 0 10px $clr-white);
+    }
+
+    & .background-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 9vw;
+        max-width: 90px;
+        aspect-ratio: 1;
+        border-radius: 100vh;
+        background: $clr-gradient-900;
+        z-index: -1;
+    }
+
+    @media screen and (max-width: 570px) {
+        .sales-points-list {
+            flex-direction: column;
+            gap: 3rem;
+        }
+        & .background-icon {
+            width: 100%;
+        }
+        & img {
+            max-width: 50%;
+        }
+    }
+
+}

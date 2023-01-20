@@ -6,6 +6,15 @@ html {
     color: $clr-white;
 }
 
+h2 {
+    font-weight: $bold;
+    font-size: $fs-800;
+}
+
+.cta-wrapper p {
+    font-weight: $bold;
+}
+
 .nav-wrapper .home, .number {
     font-weight: $bold;
 }
@@ -36,6 +45,9 @@ html {
 }
 
 .sales-points {
-    // font-weight: bold;
     font-size: $fs-500;
+
+    @media screen and (max-width: 830px){
+        font-size: $fs-400;
+    }
 }

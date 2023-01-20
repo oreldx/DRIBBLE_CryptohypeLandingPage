@@ -42,7 +42,8 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -69,8 +70,10 @@ select {
   *,
 *::before,
 *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
@@ -79,6 +82,15 @@ html {
   font-family: "Poppins";
   font-weight: 400;
   color: #ffffff;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.cta-wrapper p {
+  font-weight: 700;
 }
 
 .nav-wrapper .home, .number {
@@ -112,6 +124,11 @@ html {
 .sales-points {
   font-size: 1rem;
 }
+@media screen and (max-width: 830px) {
+  .sales-points {
+    font-size: 0.75rem;
+  }
+}
 
 /*
 This file is used to contain all base imports.
@@ -138,6 +155,7 @@ Files inside this folder can contain global styles used in the project.
 .button.button--circle {
   aspect-ratio: 1;
   padding: 0.7rem;
+  margin: 0.2rem;
 }
 .button.button--white {
   background: transparent;
@@ -145,13 +163,30 @@ Files inside this folder can contain global styles used in the project.
 }
 
 .input {
-  border-radius: 100vh;
-  padding: 0.2em 0.8em;
+  padding: 0.2em 0.6rem;
   background: transparent;
+  border: 0;
+  border-radius: 100vh;
+  color: #ffffff;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.search-container {
+  border-radius: 100vh;
+  background-color: red;
   border: solid 2px transparent;
   background-image: linear-gradient(#1f1d21, #1f1d21), linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
+  display: flex;
+}
+@media screen and (max-width: 860px) {
+  .search-container {
+    display: none;
+  }
 }
 
 .nav-wrapper {
@@ -181,7 +216,12 @@ Files inside this folder can contain global styles used in the project.
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2em;
+  gap: clamp(40px, 5vw, 100px);
+}
+@media screen and (max-width: 520px) {
+  .primary-nav {
+    display: none;
+  }
 }
 
 .container {
@@ -204,6 +244,11 @@ body {
   grid-template-columns: 1fr 0.7fr;
   align-items: center;
 }
+@media screen and (max-width: 570px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+  }
+}
 .hero .left h1 {
   max-width: 500px;
 }
@@ -212,6 +257,14 @@ body {
 }
 .hero .left > *:not(:first-child) {
   margin-top: 2rem;
+}
+@media screen and (max-width: 570px) {
+  .hero .left .key-points {
+    justify-content: center;
+  }
+  .hero .left .buttons {
+    justify-content: center;
+  }
 }
 .hero .right {
   align-self: center;
@@ -229,6 +282,11 @@ body {
   background: linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
   z-index: -1;
 }
+@media screen and (max-width: 570px) {
+  .hero .right::before {
+    width: 100%;
+  }
+}
 .hero .right img {
   position: relative;
   top: 40px;
@@ -237,7 +295,7 @@ body {
 .hero .even-columns {
   position: absolute;
   top: 60%;
-  left: clamp(120px, 20vw, 280px);
+  left: min(280px, 20vw);
   width: 200px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -253,23 +311,38 @@ body {
 .hero .even-columns div > *:not(:first-child) {
   margin-top: 0.5rem;
 }
+@media screen and (max-width: 970px) {
+  .hero .even-columns {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 .hero .key-points {
   display: flex;
   align-items: center;
-  gap: 3rem;
+}
+.hero .key-points li:not(:first-child) {
+  border-left: 2px solid;
+  padding-inline: 1rem;
+}
+.hero .key-points li:first-child {
+  padding-right: 1rem;
 }
 
 .sales-points {
-  margin-top: 12vh;
+  margin-top: 5rem;
+}
+.sales-points .sales-points-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 6rem;
+  gap: 2rem;
 }
 .sales-points li {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 3rem;
+  align-items: center;
 }
 .sales-points .icon {
   position: relative;
@@ -279,15 +352,48 @@ body {
 }
 .sales-points img {
   width: 70%;
+  min-width: 30px;
+  max-width: 50px;
+  filter: drop-shadow(0 0 10px #ffffff);
 }
 .sales-points .background-icon {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 90px;
+  width: 9vw;
+  max-width: 90px;
   aspect-ratio: 1;
   border-radius: 100vh;
   background: linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
   z-index: -1;
+}
+@media screen and (max-width: 570px) {
+  .sales-points .sales-points-list {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .sales-points .background-icon {
+    width: 100%;
+  }
+  .sales-points img {
+    max-width: 50%;
+  }
+}
+
+.cta-wrapper {
+  margin-top: 5rem;
+  border-radius: 2rem;
+  background: linear-gradient(90deg, rgb(254, 123, 126) 0%, rgb(253, 161, 77) 21%, rgb(243, 70, 63) 39%, rgb(205, 101, 146) 58%, rgb(128, 77, 168) 75%, rgb(103, 97, 245) 88%, rgb(35, 36, 79) 100%);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.cta-wrapper *:not(:first-child) {
+  margin-top: 2rem;
+}
+.cta-wrapper h2 {
+  max-width: 60%;
 }/*# sourceMappingURL=styles.css.map */
